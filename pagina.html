@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SorpresAAAAaaaa🥳</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+--bg-dark:#12121c;
+--text-dark:#4a4e69;
+--elegant-font:'Georgia','Times New Roman',serif;
+--fun-font:'Comic Sans MS','Chalkboard SE',cursive;
+}
+body{
+background-color:var(--bg-dark);
+color:var(--text-dark);
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+transition:background-color 1s ease,color 1s ease;
+overflow-x:hidden;
+}
+body.light-on{
+background-color:#fdf5e6;
+background-image:url('fondo.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:#333;
+}
+.CntHdn{
+opacity:0;
+visibility:hidden;
+transform:translateY(20px);
+transition:opacity 1.5s ease 0.5s,transform 1.5s ease 0.5s,visibility 0s linear 2s;
+}
+body.light-on .CntHdn{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+transition:opacity 1.5s ease 0.5s,transform 1.5s ease 0.5s,visibility 0s linear 0s;
+}
+.elegant-red-text{
+color:#d62828;
+font-family:var(--elegant-font);
+font-style:italic;
+font-weight:bold;
+}
+.SecLgt{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:20px;
+position:relative;
+}
+h1{
+font-size:2.5rem;
+margin-bottom:40px;
+text-align:center;
+text-shadow:2px 2px 5px rgba(0,0,0,0.1);
+transition:color 1s;
+}
+body.light-on h1{color:#d62828;font-family:var(--elegant-font);font-style:italic;}
+.WrpSwt{
+width:90px;height:140px;background:#e0e0e0;border-radius:12px;
+box-shadow:inset 0 0 10px rgba(0,0,0,0.1),0 8px 15px rgba(0,0,0,0.4);
+display:flex;justify-content:center;align-items:center;cursor:pointer;position:relative;z-index:10;
+}
+.BtnSwt{
+width:45px;height:70px;background:linear-gradient(to bottom,#ffffff,#cccccc);
+border-radius:6px;transform:translateY(15px);
+box-shadow:0 6px 8px rgba(0,0,0,0.4),inset 0px -2px 5px rgba(0,0,0,0.1);
+transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.3s ease;
+}
+body.light-on .BtnSwt{
+transform:translateY(-15px);background:linear-gradient(to bottom,#cccccc,#ffffff);
+box-shadow:0 -6px 8px rgba(0,0,0,0.4),inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+.MscCrd{
+background:#181818;border-radius:20px;padding:25px;text-align:center;
+width:90%;max-width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.5);
+margin:40px auto 20px auto;border:1px solid #333;display:flex;flex-direction:column;align-items:center;
+}
+.TxtPly{
+color:#b3b3b3;font-size:0.85rem;margin-bottom:20px;text-transform:uppercase;
+letter-spacing:2px;font-family:sans-serif;
+}
+.ImgCvr{
+width:200px;height:200px;border-radius:50%;object-fit:cover;
+box-shadow:0 8px 25px rgba(0,0,0,0.6);margin-bottom:25px;
+animation:spin-record 6s linear infinite;animation-play-state:paused;
+}
+.ImgCvr.Actv{animation-play-state:running;}
+@keyframes spin-record{100%{transform:rotate(360deg);}}
+.TtlSng{color:#fff;font-size:1.4rem;margin-bottom:8px;font-family:var(--fun-font);}
+.ArtSng{color:#b3b3b3;font-size:1rem;margin-bottom:25px;}
+.BtnPly{
+width:65px;height:65px;border-radius:50%;background:#1db954;color:#fff;border:none;
+font-size:1.8rem;cursor:pointer;display:flex;justify-content:center;align-items:center;
+box-shadow:0 4px 15px rgba(29,185,84,0.3);transition:transform 0.2s,background 0.2s;
+}
+.BtnPly:active{transform:scale(0.92);background:#1aa34a;}
+.main-photo-container{
+margin-top:10px;background:#fff;padding:15px;border-radius:5px;
+box-shadow:0 6px 20px rgba(0,0,0,0.2);width:80%;max-width:300px;
+text-align:center;transform:rotate(-2deg);
+}
+.main-photo-container img{width:100%;border-radius:3px;background-color:#eee;}
+.SecScr{
+padding:40px 10px;display:flex;flex-wrap:wrap;justify-content:center;
+gap:15px;max-width:1000px;margin:0 auto;position:relative;z-index:5;
+}
+.WrpPol{width:45%;max-width:200px;perspective:1000px;cursor:pointer;}
+.WrpPol:nth-child(even){transform:rotate(3deg);}
+.WrpPol:nth-child(odd){transform:rotate(-3deg);}
+.WrpPol:nth-child(3n){transform:rotate(5deg);}
+.WrpPol:nth-child(5n){transform:rotate(-4deg);}
+.InrPol{
+position:relative;width:100%;transition:transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+transform-style:preserve-3d;box-shadow:0 4px 12px rgba(0,0,0,0.15);background:#fff;border-radius:3px;
+}
+.WrpPol.Actv .InrPol{transform:rotateY(180deg);}
+.FrtPol,.BckPol{backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:3px;}
+.FrtPol{padding:10px 10px 40px 10px;background:#fff;}
+.FrtPol img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid #ddd;display:block;}
+.BckPol{
+position:absolute;top:0;left:0;width:100%;height:100%;background:#fdfdfd;
+transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;
+padding:15px;text-align:center;border:1px solid #eee;
+}
+.BckPol p{font-family:var(--fun-font);font-size:1.1rem;color:#000;transform:rotate(-2deg);}
+.NtePpr{
+background:#fff9c4;padding:20px;width:90%;max-width:300px;
+box-shadow:2px 4px 10px rgba(0,0,0,0.15);font-family:'Courier New',Courier,monospace;
+font-size:1.1rem;color:#333;line-height:1.5;text-align:center;position:relative;margin:20px 0;flex-basis:100%;align-self:center;
+}
+.TpeStk{
+position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
+width:80px;height:25px;background-color:rgba(255,255,255,0.5);box-shadow:0 1px 3px rgba(0,0,0,0.1);
+}
+.SecFrt{text-align:center;padding:40px 20px;position:relative;z-index:5;}
+.WrpCki{cursor:pointer;display:inline-block;position:relative;}
+.ImgCki{font-size:5rem;transition:transform 0.3s;display:inline-block;}
+.WrpCki:active .ImgCki{transform:scale(0.9);}
+.PprFrt{
+background:#fff;border:2px dashed #d62828;padding:15px 20px;margin-top:15px;
+border-radius:5px;font-family:var(--fun-font);font-weight:bold;color:#333;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);opacity:0;transform:scale(0);transition:all 0.5s ease;
+max-width:300px;display:inline-block;
+}
+.PprFrt.Actv{opacity:1;transform:scale(1);}
+.SecIntM{
+display:flex;flex-direction:row;justify-content:center;align-items:center;
+gap:20px;padding:20px;position:relative;max-width:600px;margin:0 auto;z-index:5;
+}
+.WrpGtC{width:140px;cursor:pointer;text-align:center;transition:transform 0.2s;position:relative;}
+.WrpGtC:active{transform:scale(0.95);}
+.ImgGtC{width:100%;height:140px;object-fit:cover;border-radius:15px;box-shadow:0 6px 15px rgba(0,0,0,0.2);background-color:#fff;padding:5px;}
+.WrpVid{width:140px;}
+.WrpVid video{width:100%;height:140px;object-fit:cover;border-radius:15px;box-shadow:0 6px 15px rgba(0,0,0,0.2);background-color:#fff;padding:5px;pointer-events:none;}
+.MsgFlt{
+position:absolute;background:rgba(255,255,255,0.95);padding:8px 12px;
+border-radius:15px;font-weight:bold;font-size:0.9rem;color:#d62828;
+font-family:var(--fun-font);box-shadow:0 4px 10px rgba(0,0,0,0.15);pointer-events:none;
+animation:FlUp 2s ease-out forwards;white-space:nowrap;z-index:20;
+}
+@keyframes FlUp{
+0%{transform:translate(0,0) scale(0.5);opacity:0;}
+10%{opacity:1;transform:translate(var(--tx),-10px) scale(1.1);}
+100%{transform:translate(calc(var(--tx) * 1.5),-120px) scale(1);opacity:0;}
+}
+.SecCke{display:flex;flex-direction:column;align-items:center;margin-top:40px;z-index:5;position:relative;}
+.WrpCke{position:relative;width:150px;height:120px;}
+.BseCke{width:100%;height:60px;background:#ff9a9e;border-radius:15px;position:absolute;bottom:0;box-shadow:inset 0 -10px 0 rgba(0,0,0,0.1);}
+.IcnCke{width:110%;left:-5%;height:30px;background:#fdfdfd;border-radius:20px;position:absolute;bottom:45px;box-shadow:0 4px 0 rgba(0,0,0,0.05);}
+.ElmCnd{width:12px;height:35px;background:repeating-linear-gradient(45deg,#fff,#fff 5px,#ff4b4b 5px,#ff4b4b 10px);position:absolute;bottom:70px;border-radius:3px;}
+.Cnd1{left:30px;}.Cnd2{left:70px;bottom:75px;}.Cnd3{right:30px;}
+.ElmFlm{width:16px;height:24px;background:#ff9d00;border-radius:50% 50% 20% 20%;position:absolute;top:-25px;left:-2px;cursor:pointer;animation:Flck 0.6s infinite alternate;box-shadow:0 0 15px #ff9d00;}
+.ElmFlm.Apg{display:none;}
+@keyframes Flck{0%{transform:scale(1) rotate(-2deg);opacity:0.9;}100%{transform:scale(1.1) rotate(2deg);opacity:1;}}
+.TxtWsh{font-family:var(--fun-font);font-size:1.5rem;color:#d62828;font-weight:bold;margin-top:15px;opacity:0;transition:opacity 0.5s;text-shadow:0 0 10px rgba(255,255,255,0.8);}
+.TxtWsh.Actv{opacity:1;animation:PlsWsh 1s infinite alternate;}
+@keyframes PlsWsh{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.SecBxn{min-height:50vh;display:flex;align-items:center;justify-content:center;padding:40px 20px 60px 20px;position:relative;z-index:5;}
+.WrpBzn{position:relative;width:260px;height:320px;cursor:pointer;perspective:1000px;}
+.BdyBzn{position:absolute;bottom:0;width:100%;height:250px;background-color:#d32f2f;border-radius:20px;box-shadow:0 15px 30px rgba(0,0,0,0.3);border:2px solid #b71c1c;z-index:1;}
+.RfBzn{position:absolute;top:0;left:-5%;width:110%;height:120px;background-color:#c62828;border-radius:50% 50% 0 0;z-index:1;box-shadow:inset 0 10px 15px rgba(0,0,0,0.2);}
+.SltBzn{position:absolute;top:130px;left:50%;transform:translateX(-50%);width:180px;height:15px;background-color:#111;border-radius:10px;box-shadow:inset 0 3px 6px rgba(0,0,0,0.8);z-index:2;}
+.DmyLtr{position:absolute;top:135px;left:20%;width:60%;height:80px;background-color:#fafafa;border-radius:5px 5px 0 0;box-shadow:0 -2px 10px rgba(0,0,0,0.1);z-index:2;opacity:0;transition:transform 0.5s ease,opacity 0.3s ease;}
+.DmyLtr::after{content:'';position:absolute;top:20px;left:10%;width:80%;height:4px;background:#ddd;border-radius:2px;box-shadow:0 10px 0 #ddd,0 20px 0 #ddd;}
+.DrBzn{position:absolute;bottom:0;width:100%;height:150px;background-color:#e53935;border-radius:0 0 18px 18px;z-index:4;transform-origin:bottom;transition:transform 0.6s ease;box-shadow:inset 0 0 10px rgba(0,0,0,0.2);border:2px solid #c62828;display:flex;justify-content:center;}
+.HdlBzn{width:40px;height:10px;background-color:#ffc107;border-radius:5px;margin-top:20px;box-shadow:0 2px 4px rgba(0,0,0,0.3);}
+.IndTch{position:absolute;bottom:-35px;width:100%;text-align:center;color:#555;font-weight:bold;font-size:1rem;font-family:var(--elegant-font);opacity:0.8;animation:PlsTch 1.5s infinite;}
+@keyframes PlsTch{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.WrpBzn.Actv .DrBzn{transform:rotateX(180deg);}
+.WrpBzn.Actv .DmyLtr{opacity:1;transform:translateY(-90px);}
+.OvrCrt{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:9998;opacity:0;visibility:hidden;transition:opacity 0.4s ease;backdrop-filter:blur(3px);}
+.OvrCrt.Actv{opacity:1;visibility:visible;}
+.FllCrt{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.5);width:90%;max-width:400px;max-height:85vh;background:#fafafa;padding:35px 25px 25px 25px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,0.5);z-index:9999;opacity:0;visibility:hidden;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);overflow-y:auto;}
+.FllCrt.Actv{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1);}
+.BtnCrr{position:absolute;top:15px;right:20px;font-size:1.5rem;color:#d32f2f;cursor:pointer;font-family:Arial,sans-serif;font-weight:bold;background:none;border:none;outline:none;}
+.FllCrt h2{font-family:var(--fun-font);color:#000;margin-bottom:15px;font-size:1.6rem;text-align:center;}
+.FllCrt p{color:#333;font-family:var(--fun-font);font-size:1.05rem;margin-bottom:15px;line-height:1.5;text-align:left;}
+.SecLnk{display:flex;flex-direction:column;align-items:center;padding:40px 20px 100px 20px;text-align:center;z-index:5;position:relative;}
+.ArrwAtt{font-size:2.5rem;color:#d62828;animation:BncArr 1s infinite alternate;margin-bottom:15px;}
+@keyframes BncArr{from{transform:translateY(0);}to{transform:translateY(15px);}}
+.BtnMsg{display:inline-block;background:linear-gradient(45deg,#ff4b4b,#ff007f);color:#fff !important;text-decoration:none;padding:15px 40px;font-size:1.8rem;font-weight:bold;font-family:var(--fun-font);border-radius:40px;box-shadow:0 8px 25px rgba(255,0,127,0.4);border:3px solid #fff;animation:ShkBtn 2.5s infinite;}
+.BtnMsg:active{transform:scale(0.95);}
+@keyframes ShkBtn{0%,80%,100%{transform:scale(1) rotate(0);}85%{transform:scale(1.1) rotate(-3deg);}90%{transform:scale(1.1) rotate(3deg);}95%{transform:scale(1.1) rotate(-3deg);}}
+
+/* Estilos del Gato Travieso Ajustados */
+#NgtCat{position:fixed;z-index:9995;cursor:pointer;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;}
+#WrpNgtI{transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1);}
+.ImgNgtC{width:110px;height:auto;filter:drop-shadow(0 5px 10px rgba(0,0,0,0.4));}
+.BblNgtC{position:absolute;top:-70px;left:50%;transform:translateX(-50%) scale(0);background:white;padding:12px 18px;border-radius:20px;font-family:var(--fun-font);font-size:0.95rem;color:#d62828;box-shadow:0 5px 15px rgba(0,0,0,0.2);white-space:nowrap;transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;}
+.BblNgtC::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border-width:8px 8px 0;border-style:solid;border-color:white transparent transparent transparent;}
+
+/* Estados del Gato */
+.HdnNgtC{opacity:0;transform:scale(0.5);pointer-events:none;}
+.ActvNgtC{opacity:1;transform:scale(1);pointer-events:auto;}
+.CptNgtC{top:50% !important;left:50% !important;bottom:auto !important;right:auto !important;transform:translate(-50%,-50%) scale(1.5) !important;opacity:1 !important;pointer-events:auto;}
+.CptNgtC #WrpNgtI{transform:rotate(0deg) !important;}
+.CptNgtC .BblNgtC{transform:translateX(-50%) scale(1);}
+
+/* Efectos visuales de globos y confeti (con desvanecimiento) */
+.CntCnf{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;overflow:hidden;}
+.ElmCnf{position:absolute;width:10px;height:20px;opacity:0;animation:FllCnf linear forwards;}
+@keyframes FllCnf{
+0%{transform:translateY(-100px) rotate(0deg);opacity:1;}
+80%{opacity:1;}
+100%{transform:translateY(100vh) rotate(720deg);opacity:0;} /* Desvanecido aquí */
+}
+
+.CntBlln{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9000;overflow:hidden;}
+.ElmBlln{position:absolute;bottom:-100px;width:45px;height:60px;border-radius:50% 50% 50% 50% / 40% 40% 60% 60%;cursor:pointer;pointer-events:auto;animation:FltBlln 7s linear forwards;display:flex;justify-content:center;box-shadow:inset -5px -5px 10px rgba(0,0,0,0.2);}
+.ElmBlln::after{content:'';position:absolute;bottom:-8px;width:2px;height:30px;background:rgba(255,255,255,0.5);}
+.ElmBlln.Pp{transform:scale(1.5);opacity:0;transition:all 0.2s;}
+@keyframes FltBlln{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-50vh) translateX(20px);}100%{transform:translateY(-120vh) translateX(-20px);}}
+</style>
+</head>
+<body>
+<audio id="AudOn" src="prendido.mp3"></audio>
+<audio id="AudOff" src="apagado.mp3"></audio>
+<audio id="BgMsc" src="Ya no tengo tiempo - Aliss.mp3" loop></audio>
+
+<div id="CnfCnt" class="CntCnf"></div>
+<div id="BllnCnt" class="CntBlln"></div>
+
+<section class="SecLgt">
+<h1 id="TtlPrn">Enciende la luz</h1>
+<div class="WrpSwt" onclick="TglLzt()">
+<div class="BtnSwt"></div>
+</div>
+
+<div class="MscCrd CntHdn">
+<p class="TxtPly">Dale play y sigue mirando</p>
+<img src="portada.jpg" class="ImgCvr" id="ImgCvr" alt="Portada">
+<h2 class="TtlSng">Ya no tengo tiempo</h2>
+<p class="ArtSng">Aliss</p>
+<button class="BtnPly" id="BtnPly" onclick="TglMsc()">▶</button>
+</div>
+
+<div class="main-photo-container CntHdn">
+<img src="imagen naye.jpg" alt="Naye">
+</div>
+</section>
+
+<section class="SecScr CntHdn">
+<div class="NtePpr">
+<div class="TpeStk"></div>
+"Aqui unas imagenes randoms xq no sabia q mas colocar xd"
+</div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 1.jpg" alt=""></div><div class="BckPol"><p>Este gato no es 😌</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 2.jpg" alt=""></div><div class="BckPol"><p>Parece pero no es 😆</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 3.jpg" alt=""></div><div class="BckPol"><p>MI POLLITOOOOOOOO</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 4.jpg" alt=""></div><div class="BckPol"><p>AAAAAAAAAAAAAAAAAAAAAAAA</p></div></div></div>
+<div class="NtePpr"><div class="TpeStk"></div>"Sigue bajando ya vas a llegar al buzon......"</div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 5.jpg" alt=""></div><div class="BckPol"><p>YUPIIIIIiiiiii xd</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 6.jpg" alt=""></div><div class="BckPol"><p>AQUINO XD</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 7.jpg" alt=""></div><div class="BckPol"><p>pipipi la crisis de bolivia :'v</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 8.jpg" alt=""></div><div class="BckPol"><p>Wazaaaaaaaaaaaaaaaa</p></div></div></div>
+<div class="NtePpr"><div class="TpeStk"></div>"Espero no te este incomodando as imagenes xd no tuve na mejor idea vas disculpar"</div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 9.jpg" alt=""></div><div class="BckPol"><p>HAPPY BIRTHDAY :D</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 10.jpg" alt=""></div><div class="BckPol"><p>este no es un gato xd</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 11.jpg" alt=""></div><div class="BckPol"><p>9547 al veres</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 12.jpg" alt=""></div><div class="BckPol"><p>Esta muy serca</p></div></div></div>
+<div class="NtePpr"><div class="TpeStk"></div>"Tus metas son mas grandes q tus miedos, tu puedes 😄"</div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 13.jpg" alt=""></div><div class="BckPol"><p>Feliz cumpleañossss 😌😄</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 14.jpg" alt=""></div><div class="BckPol"><p>POZOLE POZOLITOOOO turururur</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 15.jpg" alt=""></div><div class="BckPol"><p>yo bien confundido xddd</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 16.jpg" alt=""></div><div class="BckPol"><p>Aqui no xDDD</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 17.jpg" alt=""></div><div class="BckPol"><p>si te fijas bien abajo trae una ceerveza jajaasjkakj</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 18.jpg" alt=""></div><div class="BckPol"><p>uyyyy yo q</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 19.jpg" alt=""></div><div class="BckPol"><p>El diabloooo</p></div></div></div>
+<div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 20.jpg" alt=""></div><div class="BckPol"><p>Este ni es gato 🐶🦴</p></div></div></div>
+</section>
+
+<section class="SecFrt CntHdn">
+<h3 style="font-family:var(--fun-font);margin-bottom:10px;color:#d62828;">¡Abre tu galleta de la suerte!</h3>
+<div class="WrpCki" onclick="AbrGll()">
+<div class="ImgCki" id="IcnGll">🥠</div>
+<div class="PprFrt" id="PprGll">...</div>
+</div>
+</section>
+
+<section class="SecIntM CntHdn">
+<div class="WrpGtC" onclick="LnzMsg(event)">
+<img src="gato.jpg" class="ImgGtC" alt="Gato">
+</div>
+<div class="WrpVid">
+<video src="gato bailando.mp4" autoplay loop muted playsinline></video>
+</div>
+</section>
+
+<section class="SecCke CntHdn">
+<h3 style="font-family:var(--fun-font);margin-bottom:10px;color:#333;">¡Apaga las velitas tocándolas!</h3>
+<div class="WrpCke">
+<div class="BseCke"></div>
+<div class="IcnCke"></div>
+<div class="ElmCnd Cnd1"><div class="ElmFlm" onclick="ApgVla(this)"></div></div>
+<div class="ElmCnd Cnd2"><div class="ElmFlm" onclick="ApgVla(this)"></div></div>
+<div class="ElmCnd Cnd3"><div class="ElmFlm" onclick="ApgVla(this)"></div></div>
+</div>
+<div class="TxtWsh" id="TxtDso">¡Pide un deseo! ✨</div>
+</section>
+
+<section class="SecBxn CntHdn">
+<div class="WrpBzn" onclick="AbrBzn()">
+<div class="RfBzn"></div>
+<div class="BdyBzn"><div class="SltBzn"></div></div>
+<div class="DmyLtr"></div>
+<div class="DrBzn"><div class="HdlBzn"></div></div>
+<div class="IndTch">Toca el buzón</div>
+</div>
+</section>
+
+<div class="OvrCrt" id="OvrCrt"></div>
+<div class="FllCrt" id="FllCrt">
+<button class="BtnCrr" onclick="CrrCrt()">X</button>
+<h2>HOLAAA? 👀</h2>
+<p>helouu xd nomas estoy aqui solamente para desearte un feliz cumpleaños 😅 que espero la pases muy bien y te diviertas mucho 😌</p>
+<p>Espero te guste el pequeño regalo que te hice, la verdad no se me ocurrio nada mas xd no es la gran cosa pero espero q te guste jsjs</p>
+<p>detras de ese mensajito no vas a encontrar oro y un ferrari, o si?👀 xD jaksjasjkasj si quieres averigualo pero si no, no tambien, eso ya es decision tuya 😌😆 jsjsjsj y perdón por las molestias o si esq te estoy incomodando o algo asi x los regalos y eso.... nomas queria felicitarte y en parte disculparme xd perdón</p>
+<p>no le odies al isma x haberme ayudado xdd yo no sabia como entregarte el regalo o como poder hablarte 😅 nomas quería felicitarte 😄</p>
+</div>
+
+<section class="SecLnk CntHdn">
+<div class="ArrwAtt">⬇️ ⬇️ ⬇️</div>
+<a href="#" class="BtnMsg" target="_blank">mensajto xd</a>
+</section>
+
+<div id="NgtCat" class="HdnNgtC">
+<div id="WrpNgtI">
+<img src="gato_travieso.png" alt="Gato Travieso" id="ImgNgt" class="ImgNgtC">
+</div>
+<div class="BblNgtC">Me atrapastee, feliz cumpleaños 😄😆</div>
+</div>
+
+<script>
+let EstLgt=false;let VlsApg=0;let IntGlb;let IntGto;let TmtGto;
+const CntGto=document.getElementById('NgtCat');const ArrBrd=['bottom','left','right'];
+
+function TglLzt(){
+const ElmBdy=document.body;const ElmTtl=document.getElementById('TtlPrn');
+const AudOn=document.getElementById('AudOn');const AudOff=document.getElementById('AudOff');
+ElmBdy.classList.toggle('light-on');EstLgt=ElmBdy.classList.contains('light-on');
+
+if(EstLgt){
+AudOn.currentTime=0;AudOn.play().catch(e=>e);ElmTtl.innerText="SorpresAAAAaaaa🥳";
+LnzCnf();IniGlb();IniGto();
+}else{
+AudOff.currentTime=0;AudOff.play().catch(e=>e);ElmTtl.innerText="Enciende la luz";
+DtnGlb();clearInterval(IntGto);clearTimeout(TmtGto);CntGto.className='HdnNgtC';
+}
+}
+
+function LnzCnf(){
+const CntCnf=document.getElementById('CnfCnt');CntCnf.innerHTML='';
+const ArrClr=['#ff4b4b','#ff7eb3','#ffc107','#4CAF50','#2196F3'];
+for(let i=0;i<70;i++){
+const ElmCnf=document.createElement('div');ElmCnf.className='ElmCnf';
+ElmCnf.style.left=Math.random()*100+'vw';
+ElmCnf.style.backgroundColor=ArrClr[Math.floor(Math.random()*ArrClr.length)];
+ElmCnf.style.animationDuration=(Math.random()*3+2)+'s';
+ElmCnf.style.animationDelay=(Math.random()*1)+'s';
+CntCnf.appendChild(ElmCnf);setTimeout(()=>ElmCnf.remove(),5000);
+}
+}
+
+function TglMsc(){
+const AudMsc=document.getElementById('BgMsc');const BtnPly=document.getElementById('BtnPly');const ImgCvr=document.getElementById('ImgCvr');
+if(AudMsc.paused){
+AudMsc.play();BtnPly.innerText="⏸";ImgCvr.classList.add('Actv');
+}else{
+AudMsc.pause();BtnPly.innerText="▶";ImgCvr.classList.remove('Actv');
+}
+}
+
+function IniGlb(){
+IntGlb=setInterval(()=>{
+if(!EstLgt)return;
+const CntGlb=document.getElementById('BllnCnt');const ElmGlb=document.createElement('div');
+ElmGlb.className='ElmBlln';ElmGlb.style.left=Math.random()*80+10+'vw';
+const ArrClr=['#ff4b4b','#ff7eb3','#ffc107','#4CAF50','#2196F3','#9c27b0'];
+ElmGlb.style.backgroundColor=ArrClr[Math.floor(Math.random()*ArrClr.length)];
+ElmGlb.onclick=function(){this.classList.add('Pp');setTimeout(()=>this.remove(),200);};
+CntGlb.appendChild(ElmGlb);setTimeout(()=>{if(ElmGlb.parentNode)ElmGlb.remove();},7000);
+},1500);
+}
+
+function DtnGlb(){clearInterval(IntGlb);}
+
+const ArrFrt=["Tu suerte de hoy: El gato bailarín te protegerá de las malas vibras 😼","Hoy comerás algo muy rico, probablemente pastel sjsjs 🍰","Felíz cumple 👀","Hoy es un excelente día para ignorar las responsabilidades y comer pastel 🎂","Eres magia pura, nunca dejes que nadie apague tu brillo ✨"];
+
+function AbrGll(){
+const IcnGll=document.getElementById('IcnGll');const PprGll=document.getElementById('PprGll');
+IcnGll.innerText="💥";setTimeout(()=>{IcnGll.style.display='none';},300);
+PprGll.innerText=ArrFrt[Math.floor(Math.random()*ArrFrt.length)];setTimeout(()=>{PprGll.classList.add('Actv');},300);
+}
+
+function ApgVla(ElmVla){
+if(!ElmVla.classList.contains('Apg')){
+ElmVla.classList.add('Apg');VlsApg++;
+if(VlsApg===3){document.getElementById('TxtDso').classList.add('Actv');LnzCnf();}
+}
+}
+
+const ArrMsgGt=["¡Tú puedes! 💪","¡Eres increíble! ✨","Nunca te rindas 🌟","Confía en ti","¡Feliz Cumpleaños! 🎂","Sonríe 😊","Sigue brillando ⭐","Eres capaz de todo 🚀","Hoy será un gran día ☀️"];
+
+function LnzMsg(EvtObj){
+const CntInt=document.querySelector('.SecIntM');const ElmMsg=document.createElement('div');
+ElmMsg.className='MsgFlt';ElmMsg.innerText=ArrMsgGt[Math.floor(Math.random()*ArrMsgGt.length)];
+const ObjRct=CntInt.getBoundingClientRect();
+ElmMsg.style.left=(EvtObj.clientX-ObjRct.left-20)+'px';ElmMsg.style.top=(EvtObj.clientY-ObjRct.top-20)+'px';
+ElmMsg.style.setProperty('--tx',`${(Math.random()-0.5)*100}px`);
+CntInt.appendChild(ElmMsg);setTimeout(()=>ElmMsg.remove(),2000);
+}
+
+function AbrBzn(){
+const ElmBzn=document.querySelector('.WrpBzn');if(ElmBzn.classList.contains('Actv'))return;
+ElmBzn.classList.add('Actv');document.querySelector('.IndTch').style.display='none';
+setTimeout(()=>{document.getElementById('OvrCrt').classList.add('Actv');document.getElementById('FllCrt').classList.add('Actv');},500);
+}
+
+function CrrCrt(){
+document.getElementById('OvrCrt').classList.remove('Actv');document.getElementById('FllCrt').classList.remove('Actv');
+setTimeout(()=>{const ElmBzn=document.querySelector('.WrpBzn');ElmBzn.classList.remove('Actv');document.querySelector('.IndTch').style.display='block';},400);
+}
+
+function IniGto(){
+IntGto=setInterval(()=>{
+if(!EstLgt)return;
+const StrBrd=ArrBrd[Math.floor(Math.random()*ArrBrd.length)];
+CntGto.style.top='';CntGto.style.left='';CntGto.style.right='';CntGto.style.bottom='';
+const WrpI=document.getElementById('WrpNgtI');
+
+if(StrBrd==='bottom'){
+CntGto.style.bottom='-10px';CntGto.style.left=(Math.random()*60+20)+'%';
+WrpI.style.transform='rotate(0deg)';
+}
+else if(StrBrd==='left'){
+CntGto.style.left='-10px';CntGto.style.top=(Math.random()*60+20)+'%';
+WrpI.style.transform='rotate(90deg)';
+}
+else if(StrBrd==='right'){
+CntGto.style.right='-10px';CntGto.style.top=(Math.random()*60+20)+'%';
+WrpI.style.transform='rotate(-90deg)';
+}
+
+CntGto.className='ActvNgtC';
+TmtGto=setTimeout(()=>{if(!CntGto.classList.contains('CptNgtC')){CntGto.className='HdnNgtC';}},3000);
+},8000);
+}
+
+function CptGto(){
+clearTimeout(TmtGto);clearInterval(IntGto);CntGto.className='CptNgtC';
+setTimeout(()=>{CntGto.className='HdnNgtC';IniGto();},4000);
+}
+
+CntGto.onclick=CptGto;
+</script>
+</body>
+</html>
