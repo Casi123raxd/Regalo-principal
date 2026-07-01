@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SorpresAAAAaaaa</title>
     <style>
-        /* Importamos Merienda para los títulos y Quicksand para que los textos largos sean súper legibles y lindos */
         @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@500;700&family=Quicksand:wght@500;700&display=swap');
 
         * {
@@ -18,7 +17,7 @@
             --bg-dark: #12121c;
             --text-dark: #4a4e69;
             --elegant-font: 'Merienda', cursive;
-            --fun-font: 'Quicksand', sans-serif; /* Fuente redondeada y muy clara */
+            --fun-font: 'Quicksand', sans-serif; 
         }
 
         body {
@@ -296,7 +295,7 @@
             width: 90%;
             max-width: 300px;
             box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
-            font-family: 'Courier New', Courier, monospace; /* Restaurado a su fuente original de máquina de escribir */
+            font-family: 'Courier New', Courier, monospace; 
             font-size: 1.1rem;
             color: #333;
             line-height: 1.5;
@@ -305,6 +304,7 @@
             margin: 20px 0;
             flex-basis: 100%;
             align-self: center;
+            font-weight: 700;
         }
 
         .TpeStk {
@@ -530,7 +530,7 @@
             50% { transform: scale(1.05); }
         }
 
-        /* ===== EL BUZÓN ===== */
+        /* ===== EL BUZÓN Y CARTA (MÁQUINA DE ESCRIBIR) ===== */
         .SecBxn {
             min-height: 50vh;
             display: flex;
@@ -664,7 +664,6 @@
             transform: translateY(-90px);
         }
 
-        /* ===== CARTA EMERGENTE ===== */
         .OvrCrt {
             position: fixed;
             top: 0;
@@ -721,6 +720,7 @@
             background: none;
             border: none;
             outline: none;
+            z-index: 10;
         }
 
         .FllCrt h2 {
@@ -731,7 +731,8 @@
             text-align: center;
         }
 
-        .FllCrt p {
+        /* Estilo para la máquina de escribir */
+        #CartaContenido p {
             color: #333;
             font-family: var(--fun-font);
             font-size: 1.15rem;
@@ -739,6 +740,147 @@
             margin-bottom: 15px;
             line-height: 1.6;
             text-align: left;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 1.2rem;
+            background-color: #333;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ===== CIELO NOCTURNO Y CONSTELACIÓN ===== */
+        .SecNightSky {
+            width: 100%;
+            min-height: 80vh;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            z-index: 5;
+        }
+
+        .SecNightSky h3 {
+            color: #fff;
+            font-family: var(--elegant-font);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            z-index: 10;
+        }
+
+        .SecNightSky p {
+            color: #ccc;
+            font-family: var(--fun-font);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            z-index: 10;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .SkyContainer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* Estrellas aleatorias interactivas */
+        .star-random {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #fff, 0 0 15px #fff;
+            cursor: pointer;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Estrellas fugaces */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+            animation: shoot 4s linear infinite;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        @keyframes shoot {
+            0% { transform: translateY(-100px) translateX(0) rotate(45deg); opacity: 1; }
+            20% { transform: translateY(300px) translateX(-300px) rotate(45deg); opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Constelación Gato */
+        .ConstellationSvg {
+            position: relative;
+            z-index: 2;
+            width: 280px;
+            height: 280px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+        }
+
+        .constellation-line {
+            stroke: rgba(255, 255, 255, 0.7);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .constellation-line.draw {
+            stroke-dashoffset: 0;
+        }
+
+        .constellation-star {
+            fill: #fff;
+            transition: r 0.3s;
+        }
+        
+        .constellation-star.glow {
+            r: 5;
+            fill: #ffeb3b;
+        }
+
+        .BtnConstellation {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 10px 25px;
+            font-family: var(--fun-font);
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .BtnConstellation:hover {
+            background: #fff;
+            color: #1b2735;
+            box-shadow: 0 0 15px #fff;
         }
 
         /* ===== BOTÓN SORPRESA ===== */
@@ -836,36 +978,11 @@
             border-color: white transparent transparent transparent;
         }
 
-        /* Posiciones del gato */
-        .HdnNgtC {
-            opacity: 0;
-            transform: scale(0.5);
-            pointer-events: none;
-        }
-
-        .ActvNgtC {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: auto;
-        }
-
-        .CptNgtC {
-            top: 50% !important;
-            left: 50% !important;
-            bottom: auto !important;
-            right: auto !important;
-            transform: translate(-50%, -50%) scale(1.5) !important;
-            opacity: 1 !important;
-            pointer-events: auto;
-        }
-
-        .CptNgtC #WrpNgtI {
-            transform: rotate(0deg) !important;
-        }
-
-        .CptNgtC .BblNgtC {
-            transform: translateX(-50%) scale(1);
-        }
+        .HdnNgtC { opacity: 0; transform: scale(0.5); pointer-events: none; }
+        .ActvNgtC { opacity: 1; transform: scale(1); pointer-events: auto; }
+        .CptNgtC { top: 50% !important; left: 50% !important; bottom: auto !important; right: auto !important; transform: translate(-50%, -50%) scale(1.5) !important; opacity: 1 !important; pointer-events: auto; }
+        .CptNgtC #WrpNgtI { transform: rotate(0deg) !important; }
+        .CptNgtC .BblNgtC { transform: translateX(-50%) scale(1); }
 
         /* ===== EFECTOS DE GLOBOS Y CONFETI ===== */
         .CntCnf {
@@ -942,16 +1059,12 @@
 </head>
 <body>
 
-    <!-- AUDIOS -->
     <audio id="AudOn" src="prendido.mp3"></audio>
     <audio id="AudOff" src="apagado.mp3"></audio>
     <audio id="BgMsc" src="Ya no tengo tiempo - Aliss.mp3" loop></audio>
-
-    <!-- CONTENEDORES DE EFECTOS -->
-    <div id="CnfCnt" class="CntCnf"></div>
+    <audio id="TypeSnd" src="teclado.mp3" loop></audio> <div id="CnfCnt" class="CntCnf"></div>
     <div id="BllnCnt" class="CntBlln"></div>
 
-    <!-- SECCIÓN DE INTERRUPTOR Y REPRODUCTOR -->
     <section class="SecLgt">
         <h1 id="TtlPrn">Enciende la luz</h1>
         
@@ -972,7 +1085,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÁLBUM / SCRAPBOOK -->
     <section class="SecScr CntHdn">
         <div class="NtePpr">
             <div class="TpeStk"></div>
@@ -1010,7 +1122,6 @@
         <div class="WrpPol" onclick="this.classList.toggle('Actv')"><div class="InrPol"><div class="FrtPol"><img src="imagen 20.jpg" alt=""></div><div class="BckPol"><p>Este ni es gato 🐶🦴</p></div></div></div>
     </section>
 
-    <!-- GALLETA DE LA SUERTE -->
     <section class="SecFrt CntHdn">
         <h3 style="font-family:var(--fun-font);margin-bottom:10px;color:#d62828;">¡Abre tu galleta de la suerte!</h3>
         <div class="WrpCki" onclick="AbrGll()">
@@ -1019,7 +1130,6 @@
         </div>
     </section>
 
-    <!-- INTERACTIVIDAD CON GATO -->
     <section class="SecIntM CntHdn">
         <div class="WrpGtC" onclick="LnzMsg(event)">
             <img src="gato.jpg" class="ImgGtC" alt="Gato">
@@ -1029,7 +1139,6 @@
         </div>
     </section>
 
-    <!-- PASTEL DE VELITAS -->
     <section class="SecCke CntHdn">
         <h3 style="font-family:var(--fun-font);margin-bottom:10px;color:#333;">¡Apaga las velitas tocándolas!</h3>
         <div class="WrpCke">
@@ -1042,7 +1151,31 @@
         <div class="TxtWsh" id="TxtDso">¡Pide un deseo! ✨</div>
     </section>
 
-    <!-- BUZÓN -->
+    <section class="SecNightSky CntHdn">
+        <h3>Cielo Estrellado</h3>
+        <p>Toca las estrellas para ver mensajes brillantes</p>
+        
+        <div class="SkyContainer" id="SkyContainer"></div>
+
+        <svg class="ConstellationSvg" viewBox="0 0 200 200">
+            <g id="ConstLines">
+                <path class="constellation-line" d="M50,40 L70,70 L130,70 L150,40 L100,100 L50,40 Z M100,100 L70,180 M100,100 L130,180 L170,160 L190,110" />
+            </g>
+            <g id="ConstStars">
+                <circle cx="50" cy="40" r="3" class="constellation-star"/>
+                <circle cx="70" cy="70" r="3" class="constellation-star"/>
+                <circle cx="130" cy="70" r="3" class="constellation-star"/>
+                <circle cx="150" cy="40" r="3" class="constellation-star"/>
+                <circle cx="100" cy="100" r="3" class="constellation-star"/>
+                <circle cx="70" cy="180" r="3" class="constellation-star"/>
+                <circle cx="130" cy="180" r="3" class="constellation-star"/>
+                <circle cx="170" cy="160" r="3" class="constellation-star"/>
+                <circle cx="190" cy="110" r="3" class="constellation-star"/>
+            </g>
+        </svg>
+        <button class="BtnConstellation" onclick="DibujarConstelacion()">✨ Revelar Constelación ✨</button>
+    </section>
+
     <section class="SecBxn CntHdn">
         <div class="WrpBzn" onclick="AbrBzn()">
             <div class="RfBzn"></div>
@@ -1053,24 +1186,18 @@
         </div>
     </section>
 
-    <!-- CARTA MODAL -->
     <div class="OvrCrt" id="OvrCrt"></div>
     <div class="FllCrt" id="FllCrt">
         <button class="BtnCrr" onclick="CrrCrt()">X</button>
         <h2>HOLAAA? 👀</h2>
-        <p>helouu xd nomas estoy aqui solamente para desearte un feliz cumpleaños 😅 que espero la pases muy bien y te diviertas mucho 😌</p>
-        <p>Espero te guste el pequeño regalo que te hice, la verdad no se me ocurrio nada mas xd no es la gran cosa pero espero q te guste jsjs</p>
-        <p>detras de ese mensajito no vas a encontrar oro y un ferrari, o si?👀 xD jaksjasjkasj si quieres averigualo pero si no, no tambien, eso ya es decision tuya 😌😆 jsjsjsj y perdón por las molestias o si esq te estoy incomodando o algo asi x los regalos y eso.... nomas queria felicitarte y en parte disculparme xd perdón</p>
-        <p>no le odies al isma x haberme ayudado xdd yo no sabia como entregarte el regalo o como poder hablarte 😅 nomas quería felicitarte 😄</p>
+        <div id="CartaContenido"></div>
     </div>
 
-    <!-- BOTÓN FINAL -->
     <section class="SecLnk CntHdn">
         <div class="ArrwAtt">⬇️ ⬇️ ⬇️</div>
         <a href="https://casi123raxd.github.io/Regalo-segundo/" class="BtnMsg" target="_blank">mensajito xd</a>
     </section>
 
-    <!-- GATO TRAVIESO -->
     <div id="NgtCat" class="HdnNgtC CntNgtC">
         <div id="WrpNgtI">
             <img src="gato_travieso.png" alt="Gato Travieso" class="ImgNgtC">
@@ -1078,13 +1205,13 @@
         <div class="BblNgtC">Me atrapastee, feliz cumpleaños 😄😆</div>
     </div>
 
-    <!-- LÓGICA JAVASCRIPT -->
     <script>
         let EstLgt = false;
         let VlsApg = 0;
         let IntGlb;
         let IntGto;
         let TmtGto;
+        let TypeInterval;
         const CntGto = document.getElementById('NgtCat');
         const ArrBrd = ['bottom', 'left', 'right'];
 
@@ -1105,6 +1232,7 @@
                 LnzCnf();
                 IniGlb();
                 IniGto();
+                IniCieloNocturno(); // Activa estrellas de fondo
             } else {
                 AudOff.currentTime = 0;
                 AudOff.play().catch(e => e);
@@ -1113,6 +1241,7 @@
                 clearInterval(IntGto);
                 clearTimeout(TmtGto);
                 CntGto.className = 'HdnNgtC CntNgtC';
+                document.getElementById('SkyContainer').innerHTML = ''; // Limpia cielo
             }
         }
 
@@ -1225,6 +1354,58 @@
             setTimeout(() => ElmMsg.remove(), 2000);
         }
 
+        // ===== NUEVO: MÁQUINA DE ESCRIBIR =====
+        const TextosCarta = [
+            "helouu xd nomas estoy aqui solamente para desearte un feliz cumpleaños 😅 que espero la pases muy bien y te diviertas mucho 😌",
+            "Espero te guste el pequeño regalo que te hice, la verdad no se me ocurrio nada mas xd no es la gran cosa pero espero q te guste jsjs",
+            "detras de ese mensajito no vas a encontrar oro y un ferrari, o si?👀 xD jaksjasjkasj si quieres averigualo pero si no, no tambien, eso ya es decision tuya 😌😆 jsjsjsj y perdón por las molestias o si esq te estoy incomodando o algo asi x los regalos y eso.... nomas queria felicitarte y en parte disculparme xd perdón",
+            "no le odies al isma x haberme ayudado xdd yo no sabia como entregarte el regalo o como poder hablarte 😅 nomas quería felicitarte 😄"
+        ];
+        let isTyping = false;
+
+        function TypeWriterEffect() {
+            const CntCrt = document.getElementById('CartaContenido');
+            CntCrt.innerHTML = ''; 
+            const AudType = document.getElementById('TypeSnd');
+            
+            let pIndex = 0;
+            let charIndex = 0;
+            isTyping = true;
+
+            if (AudType) AudType.play().catch(e => {});
+
+            function type() {
+                if (!isTyping) return;
+                
+                if (pIndex < TextosCarta.length) {
+                    if (charIndex === 0) {
+                        const newP = document.createElement('p');
+                        CntCrt.appendChild(newP);
+                    }
+                    const currentP = CntCrt.lastChild;
+                    
+                    // Actualiza texto agregando el cursor simulado
+                    currentP.innerHTML = TextosCarta[pIndex].substring(0, charIndex + 1) + '<span class="cursor-blink"></span>';
+                    charIndex++;
+
+                    if (charIndex >= TextosCarta[pIndex].length) {
+                        currentP.innerHTML = TextosCarta[pIndex]; // Quita cursor
+                        pIndex++;
+                        charIndex = 0;
+                        setTimeout(type, 600); // Pausa entre párrafos
+                    } else {
+                        setTimeout(type, Math.random() * 30 + 20); // Velocidad realista
+                    }
+                } else {
+                    if (AudType) AudType.pause();
+                    isTyping = false;
+                    // Agrega el cursor final
+                    CntCrt.lastChild.innerHTML += '<span class="cursor-blink"></span>';
+                }
+            }
+            type();
+        }
+
         // Buzón y Carta
         function AbrBzn() {
             const ElmBzn = document.querySelector('.WrpBzn');
@@ -1234,17 +1415,80 @@
             setTimeout(() => {
                 document.getElementById('OvrCrt').classList.add('Actv');
                 document.getElementById('FllCrt').classList.add('Actv');
+                TypeWriterEffect(); // Inicia la máquina de escribir
             }, 500);
         }
 
         function CrrCrt() {
+            isTyping = false; // Detiene la escritura
+            const AudType = document.getElementById('TypeSnd');
+            if (AudType) AudType.pause();
+
             document.getElementById('OvrCrt').classList.remove('Actv');
             document.getElementById('FllCrt').classList.remove('Actv');
             setTimeout(() => {
                 const ElmBzn = document.querySelector('.WrpBzn');
                 ElmBzn.classList.remove('Actv');
                 document.querySelector('.IndTch').style.display = 'block';
+                document.getElementById('CartaContenido').innerHTML = ''; // Resetea el texto
             }, 400);
+        }
+
+        // ===== NUEVO: CIELO NOCTURNO Y CONSTELACIÓN =====
+        const Motivaciones = ["¡Vamos, tú puedes! ✨", "Nunca dejes de creer en ti 🌟", "Sigue brillando 💫", "Cada día es una nueva oportunidad 🌙", "Lo mejor está por venir 🚀"];
+        
+        function IniCieloNocturno() {
+            const Sky = document.getElementById('SkyContainer');
+            Sky.innerHTML = '';
+            
+            // Crea 20 estrellas brillantes tocables
+            for(let i=0; i<20; i++){
+                const star = document.createElement('div');
+                star.className = 'star-random';
+                star.style.width = Math.random() * 4 + 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 95 + '%';
+                star.style.top = Math.random() * 95 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                
+                star.onclick = (e) => {
+                    const msg = document.createElement('div');
+                    msg.className = 'MsgFlt';
+                    msg.innerText = Motivaciones[Math.floor(Math.random() * Motivaciones.length)];
+                    msg.style.left = e.clientX - 50 + 'px';
+                    msg.style.top = e.clientY - 30 + 'px';
+                    msg.style.color = '#fff';
+                    msg.style.background = 'rgba(0,0,0,0.8)';
+                    msg.style.setProperty('--tx', `${(Math.random() - 0.5) * 50}px`);
+                    document.body.appendChild(msg);
+                    setTimeout(() => msg.remove(), 2000);
+                };
+                Sky.appendChild(star);
+            }
+
+            // Crea estrellas fugaces
+            setInterval(() => {
+                if(!EstLgt) return;
+                const shoot = document.createElement('div');
+                shoot.className = 'shooting-star';
+                shoot.style.left = Math.random() * 100 + '%';
+                shoot.style.top = '-100px';
+                Sky.appendChild(shoot);
+                setTimeout(() => shoot.remove(), 4000);
+            }, 3000);
+        }
+
+        function DibujarConstelacion() {
+            // Dibuja la silueta
+            document.querySelector('.constellation-line').classList.add('draw');
+            
+            // Hace brillar los puntos (estrellas)
+            const stars = document.querySelectorAll('.constellation-star');
+            stars.forEach((star, index) => {
+                setTimeout(() => {
+                    star.classList.add('glow');
+                }, index * 200); // Brillan en secuencia
+            });
         }
 
         // Lógica del Gato Travieso Ajustada
