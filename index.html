@@ -296,7 +296,7 @@
             width: 90%;
             max-width: 300px;
             box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
-            font-family: var(--fun-font);
+            font-family: 'Courier New', Courier, monospace; /* Restaurado a su fuente original de máquina de escribir */
             font-size: 1.1rem;
             color: #333;
             line-height: 1.5;
@@ -305,7 +305,6 @@
             margin: 20px 0;
             flex-basis: 100%;
             align-self: center;
-            font-weight: 700;
         }
 
         .TpeStk {
@@ -735,7 +734,7 @@
         .FllCrt p {
             color: #333;
             font-family: var(--fun-font);
-            font-size: 1.15rem; /* Letra un poco más grande para facilitar lectura */
+            font-size: 1.15rem;
             font-weight: 500;
             margin-bottom: 15px;
             line-height: 1.6;
@@ -1117,7 +1116,7 @@
             }
         }
 
-        // Lluvia de Confeti (con desvanecimiento suave)
+        // Lluvia de Confeti
         function LnzCnf() {
             const CntCnf = document.getElementById('CnfCnt');
             CntCnf.innerHTML = '';
